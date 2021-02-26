@@ -4,7 +4,6 @@
 
 package frc.robot;
 
-import java.sql.Driver;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
@@ -13,13 +12,12 @@ import frc.robot.commands.Drive;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drivetrain;
 
-import frc.robot.commands.FeedShoot;
-import frc.robot.commands.LaunchShoot;
-import frc.robot.commands.StopFeedShoot;
-import frc.robot.commands.StopLaunchShoot;
+import frc.robot.commands.LEDnormal;
+import frc.robot.commands.ShootwithLED;
 import frc.robot.subsystems.Agitator;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Feeder;
+import frc.robot.subsystems.LED;
 import frc.robot.subsystems.Launcher;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -39,23 +37,18 @@ public class RobotContainer {
   //Joystick and buttons
   private final Joystick joystick = new Joystick(0);
   private final JoystickButton driveTrigger = new JoystickButton(joystick, Constants.DRIVETRAIN_DRIVE_TRIGGER);
-
+  private final JoystickButton ShootButton = new JoystickButton(joystick, Constants.SHOOT_TRIGER);
+  //LED
+  public final static LED led = new LED();
   //Drivetrain
   private final Drivetrain drivetrain = new Drivetrain();
-  private final Drive drivetrainDrive = new Drive(drivetrain);
-  
+  private final Drive drivetrainDrive = new Drive(drivetrain,led);
+  //Feeder,launcher,agitator
   public final static Feeder m_feeder = new Feeder();
   public final static Launcher m_launcher = new Launcher();
   public final static Agitator m_agitator = new Agitator();
-
-  private final LaunchShoot m_launchshoot = new LaunchShoot(m_launcher);
-  private final FeedShoot m_feedshoot = new FeedShoot(m_feeder);
-  private final StopLaunchShoot m_stoplaunchshoot = new StopLaunchShoot(m_launcher);
-  private final StopFeedShoot m_stopfeedshoot = new StopFeedShoot(m_feeder);
-
-  private final Joystick m_joystick = new Joystick(0);
-  private final JoystickButton j_trigger = new JoystickButton(m_joystick, 1);
-  private final JoystickButton j_shootrigger = new JoystickButton(m_joystick, 6);
+  
+  private final ShootwithLED shoot = new ShootwithLED();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -71,12 +64,8 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     driveTrigger.whileHeld(drivetrainDrive);
+    ShootButton.whenPressed(shoot.andThen(new LEDnormal(led)));
 
-    j_trigger.whileHeld(m_launchshoot);
-    j_trigger.whenReleased(m_stoplaunchshoot);
-
-    j_shootrigger.whenPressed(m_feedshoot);
-    j_shootrigger.whenReleased(m_stopfeedshoot);
   }
 
   /**

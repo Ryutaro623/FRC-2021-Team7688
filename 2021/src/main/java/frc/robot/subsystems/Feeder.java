@@ -11,7 +11,7 @@ import frc.robot.Constants;
 
 public class Feeder extends SubsystemBase {
 
-  private final VictorSPX m_motor = new VictorSPX(2);
+  private final VictorSPX m_motor = new VictorSPX(Constants.FEEDER_MOTOR_PORT);
 
   /** Creates a new Feeder. */
   public Feeder() {

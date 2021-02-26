@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Launcher extends SubsystemBase {
 
-  VictorSPX m_shoot1 = new VictorSPX(6);
-  VictorSPX m_shoot2 = new VictorSPX(3);
+  VictorSPX m_shoot1 = new VictorSPX(Constants.LAUNCHER_TOP_MOTOR_PORT);
+  VictorSPX m_shoot2 = new VictorSPX(Constants.LAUNCHER_BOTTOM_MOTOR_PORT);
   
   /** Creates a new Launcher. */
   public Launcher() {

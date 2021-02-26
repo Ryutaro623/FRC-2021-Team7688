@@ -4,11 +4,14 @@
 
 package frc.robot.commands;
 
+
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.subsystems.Launcher;
 
 public class LaunchShoot extends CommandBase {
-
+  private final Timer Time = new Timer();
   Launcher m_launcher;
   /** Creates a new shoot. */
   public LaunchShoot(Launcher input_launcher) {
@@ -19,7 +22,12 @@ public class LaunchShoot extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    Time.reset();
+    Time.start();
+    m_launcher.ChangeRampTime(Constants.LAUNCHER_RAMP_TIME_DEFAULT);
+
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -29,11 +37,19 @@ public class LaunchShoot extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_launcher.ChangeRampTime(0);
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    if(Time.get()>=Constants.LAUNCHER_RAMP_TIME_DEFAULT){
+      return true;
+
+    } else {
+      return false;
+
+    }
   }
 }

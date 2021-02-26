@@ -1,15 +1,18 @@
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Launcher;
+import frc.robot.subsystems.LED;
 
-public class StopLaunchShoot extends CommandBase {
-
-  Launcher m_launcher;
-  /** Creates a new Stop2. */
-  public StopLaunchShoot(Launcher input_launcher) {
-    m_launcher = input_launcher;
-    addRequirements(m_launcher);
+public class LEDrainbow extends CommandBase {
+  /** Creates a new LEDrainbow. */
+  private LED led = new LED();
+  public LEDrainbow(LED lled) {
+    led = lled;
+    addRequirements(lled);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -20,7 +23,7 @@ public class StopLaunchShoot extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_launcher.Shoot(0, 0);
+    led.Rainbow();
   }
 
   // Called once the command ends or is interrupted.
@@ -30,6 +33,6 @@ public class StopLaunchShoot extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return true;
+    return false;
   }
 }
