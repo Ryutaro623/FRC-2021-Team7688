@@ -4,29 +4,40 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.LimelightActuator;
 import frc.robot.subsystems.LimelightTarget;
 
 public class Aiming extends CommandBase {
   /** Creates a new Aiming. */
-  private final Drivetrain dt;
+  private final Drivetrain D;
   private final LimelightTarget LT;
   private final LimelightActuator LA;
+  private final Timer time = new Timer();
+  private double x_integlar = 0;
+  private double dt = 0;
+  private double x_previous_error = 0;
+  private double lasttime = 0;
   public Aiming(Drivetrain dtt,LimelightTarget ll,LimelightActuator la) {
     LT = ll;
     LA = la;
-    dt = dtt;
+    D = dtt;
     addRequirements(LT);
-    addRequirements(dt);
+    addRequirements(D);
     addRequirements(LA);
     // Use addRequirements() here to declare subsystem dependencies.
   }
+  
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    time.reset();
+    time.start();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -34,14 +45,20 @@ public class Aiming extends CommandBase {
     LA.setAngle();
     if(LT.Area()==0){
       System.out.println("SEEKING THE TARGET");
-      dt.drive(0, 0.5);
+      D.drive(0, 0.5);
 
     } else {
+      
+      
       System.out.println("GOING TO THE TARGET");
-      double speed = (2-LT.Area())/10*4;
-      System.out.println(speed+"Now");
-      double rotation = LT.Target()/27*0.8;
-      dt.drive(speed, rotation);
+      double x_error = Constants.LIMELIGHT_ROTATTON_SETPOINT-LT.Target()/27;
+      dt = time.get()-lasttime;
+      x_integlar = x_integlar+(x_error*dt);
+      double derivative = (x_error - x_previous_error)/dt;
+      double Output_rotation = x_error*Constants.LIMELIGHT_ROTATION_KP+x_integlar*Constants.LIMELIGHT_ROTATION_KI+derivative*Constants.LIMELIGHT_ROTATION_KD;
+      D.drive(0, Output_rotation);
+      x_previous_error = x_error;
+      lasttime = time.get();
 
     }
   }
