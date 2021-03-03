@@ -41,6 +41,14 @@ public class LimelightActuator extends SubsystemBase {
       isPitchMax = true;
     }
   }
+  public void setAngle(){
+    if(pitchActuator.getAngle()>160 && rotationActuator.getAngle()>160){
+      pitchActuator.setAngle(Constants.LIMELIGHT_ACTUATOR_PITCH_MAX);
+      rotationActuator.setAngle(Constants.LIMELIGHT_ACTUATOR_ROTATE_MAX);
+
+
+    }
+  }
 
   @Override
   public void periodic() {
