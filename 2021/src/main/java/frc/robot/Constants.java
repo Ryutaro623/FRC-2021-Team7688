@@ -74,7 +74,7 @@ public final class Constants {
     public static final double LIMELIGHT_ROTATION_KI = 0;
     public static final double LIMELIGHT_ROTATION_KD = 0;
 
-    public static final double LIMELIGHT_SPEED_SETPOINT = 0;
+    public static final double LIMELIGHT_SPEED_SETPOINTD = 0;
     public static final double LIMELIGHT_SPEED_KP = 0.8;
     public static final double LIMELIGHT_SPEED_KI = 0;
     public static final double LIMELIGHT_SPEED_KD = 0;

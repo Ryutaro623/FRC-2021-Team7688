@@ -17,9 +17,9 @@ public class Aiming extends CommandBase {
   private final LimelightTarget LT;
   private final LimelightActuator LA;
   private final Timer time = new Timer();
-  private double x_integlar = 0;
+  private double integlar = 0;
   private double dt = 0;
-  private double x_previous_error = 0;
+  private double previous_error = 0;
   private double lasttime = 0;
   public Aiming(Drivetrain dtt,LimelightTarget ll,LimelightActuator la) {
     LT = ll;
@@ -38,6 +38,22 @@ public class Aiming extends CommandBase {
     time.reset();
     time.start();
   }
+  public double PID(double now_value, double set_point,double kp,double ki, double kd){
+    double error = set_point - now_value;
+    double P = error*kp;
+    dt = time.get()-lasttime;
+    integlar = integlar+(error*dt);
+    double I = integlar*ki;
+    double D = (error-previous_error/dt)*kd;
+    lasttime = time.get();
+    double output = P+I+D;
+    previous_error = error;
+    return output;
+    
+
+    
+
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -50,15 +66,10 @@ public class Aiming extends CommandBase {
     } else {
       
       
-      System.out.println("GOING TO THE TARGET");
-      double x_error = Constants.LIMELIGHT_ROTATTON_SETPOINT-LT.Target()/27;
-      dt = time.get()-lasttime;
-      x_integlar = x_integlar+(x_error*dt);
-      double derivative = (x_error - x_previous_error)/dt;
-      double Output_rotation = x_error*Constants.LIMELIGHT_ROTATION_KP+x_integlar*Constants.LIMELIGHT_ROTATION_KI+derivative*Constants.LIMELIGHT_ROTATION_KD;
-      D.drive(0, Output_rotation);
-      x_previous_error = x_error;
-      lasttime = time.get();
+      System.out.println("GOING TO THE TARGET"+PID(LT.Target(), Constants.LIMELIGHT_ROTATTON_SETPOINT, Constants.LIMELIGHT_ROTATION_KP, Constants.LIMELIGHT_ROTATION_KI, Constants.LIMELIGHT_ROTATION_KD));
+      D.drive(0, PID(LT.Target(), Constants.LIMELIGHT_ROTATTON_SETPOINT, Constants.LIMELIGHT_ROTATION_KP, Constants.LIMELIGHT_ROTATION_KI, Constants.LIMELIGHT_ROTATION_KD));
+      
+      
 
     }
   }

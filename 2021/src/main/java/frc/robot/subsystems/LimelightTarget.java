@@ -23,12 +23,10 @@ public class LimelightTarget extends SubsystemBase {
 
   public double Target(){
     x = tx.getDouble(0.0);
-    System.out.println(x);
     return x;
   }
   public double Area(){
     a = ta.getDouble(0.0);
-    System.out.println(a);
     return a;
   }
   
