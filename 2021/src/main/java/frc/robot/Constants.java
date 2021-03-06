@@ -70,12 +70,14 @@ public final class Constants {
     LIMELIGHT PID 
     */
     public static final double LIMELIGHT_ROTATTON_SETPOINT = 0;
-    public static final double LIMELIGHT_ROTATION_KP = 0.8;
-    public static final double LIMELIGHT_ROTATION_KI = 0;
-    public static final double LIMELIGHT_ROTATION_KD = 0;
+    public static final double LIMELIGHT_ROTATION_KP = 0.7;
+    public static final double ROTATION_I_LIMITE = 0.4;
+    public static final double LIMELIGHT_ROTATION_KI = 0.5;
+    public static final double LIMELIGHT_ROTATION_KD = 0.01;
 
-    public static final double LIMELIGHT_SPEED_SETPOINTD = 0;
-    public static final double LIMELIGHT_SPEED_KP = 0.8;
+    public static final double LIMELIGHT_SPEED_SETPOINTD = 2;
+    public static final double LIMELIGHT_SPEED_KP = 0.5;
+    public static final double LIMELIGHT_SPEED_I_LIMITE = 0.2;
     public static final double LIMELIGHT_SPEED_KI = 0;
     public static final double LIMELIGHT_SPEED_KD = 0;
 
