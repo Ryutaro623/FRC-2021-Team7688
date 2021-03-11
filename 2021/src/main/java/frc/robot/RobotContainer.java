@@ -14,8 +14,6 @@ import frc.robot.subsystems.Drivetrain;
 
 import frc.robot.commands.LimelightPitch;
 import frc.robot.commands.LimelightRotate;
-import frc.robot.commands.Pneumatic_back;
-import frc.robot.commands.Pneumatic_push;
 import frc.robot.commands.ShootwithLED;
 import frc.robot.subsystems.Agitator;
 import frc.robot.subsystems.Collector;
@@ -24,7 +22,6 @@ import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.LED;
 import frc.robot.subsystems.Launcher;
 import frc.robot.subsystems.LimelightActuator;
-import frc.robot.subsystems.Pnuematics;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Raise;
@@ -82,10 +79,7 @@ public class RobotContainer {
   private final LimelightActuator limelightActuator = new LimelightActuator();
   private final LimelightRotate limelightRotate = new LimelightRotate(limelightActuator);
   private final LimelightPitch limelightPitch = new LimelightPitch(limelightActuator);
-  //Pneumatics
-  private final Pnuematics pneumatic = new Pnuematics();
-  private final Pneumatic_push push = new Pneumatic_push(pneumatic);
-  private final Pneumatic_back back = new Pneumatic_back(pneumatic);
+  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -103,8 +97,6 @@ public class RobotContainer {
 
     j_A.whenPressed(limelightPitch);
     j_B.whenPressed(limelightRotate);
-    j_LStick.whenPressed(push);
-    j_RStick.whenPressed(back);
 
     j_Y.whenPressed(Shoot.andThen(new LEDwhite(m_led)));
 
