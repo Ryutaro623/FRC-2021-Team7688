@@ -17,9 +17,9 @@ public final class Constants {
     AGITATOR
     */
     public final static int AGITATOR_MOTOR_PORT = 2;
-    public final static double AGITATOR_RAMP_TIME = 0.9;
+    public final static double AGITATOR_RAMP_TIME = 1.1;
     public final static double AGITATOR_MOTOR_SPEED = 0.5;
-    public final static double AGITATOR_WAIT_TIME = 9;
+    public final static double AGITATOR_WAIT_TIME = 6;
 
     /*
     LED
@@ -55,7 +55,7 @@ public final class Constants {
     public static final int FEEDER_CHANNEL = 13;  
     public static final double FEEDER_DELAY = 3; //Delay before the feeder starts in the FeedLaunch Sequential Command Group
     
-    public static final double LAUNCHER_FEEDER_RUNTIME = 8; //Delay before the feeder starts in the FeedLaunch Sequential Command Group
+    public static final double LAUNCHER_FEEDER_RUNTIME = 1.5; //Delay before the feeder starts in the FeedLaunch Sequential Command Group
     public static final int LAUNCHER_FEEDER_TRIGGER = 3;
 
     /*
