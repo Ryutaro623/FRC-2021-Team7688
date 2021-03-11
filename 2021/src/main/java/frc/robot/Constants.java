@@ -14,6 +14,22 @@ package frc.robot;
  */
 public final class Constants {
     /*
+    When you add button bindings please add below in the format: 
+    NUMBER = LETTER, FUNCTION
+
+    JOYSTICK BUTTONS ALREADY IN USE:
+    3 = X, FEED LAUNCH
+    2 = B, LIMELIGHT ROTATE
+    1 = A, LIMELIGHT PITCH
+    6 = RB, DRIVE
+
+
+    KEYMAPS:
+    https://github.com/mandlifrc/GearsBotF310
+    */ 
+
+
+    /*
     AGITATOR
     */
     public final static int AGITATOR_MOTOR_PORT = 2;
@@ -56,7 +72,7 @@ public final class Constants {
     public static final double FEEDER_DELAY = 3; //Delay before the feeder starts in the FeedLaunch Sequential Command Group
     
     public static final double LAUNCHER_FEEDER_RUNTIME = 8; //Delay before the feeder starts in the FeedLaunch Sequential Command Group
-    public static final int LAUNCHER_FEEDER_TRIGGER = 3;
+    public static final int LAUNCHER_FEEDER_TRIGGER = 3; //X
 
     /*
     LIMELIGHT ROTATOR
@@ -69,8 +85,8 @@ public final class Constants {
     public static final int LIMELIGHT_ACTUATOR_PITCH_CHANNEL = 0;
     public static final int LIMELIGHT_ACTUATOR_ROTATE_CHANNEL = 1;
 
-    public static final int LIMELIGHT_ACTUATOR_ROTATE_TRIGGER = 2;
-    public static final int LIMELIGHT_ACTUATOR_PITCH_TRIGGER = 1;
+    public static final int LIMELIGHT_ACTUATOR_ROTATE_TRIGGER = 2; //B
+    public static final int LIMELIGHT_ACTUATOR_PITCH_TRIGGER = 1; //A
 
     /*
     DRIVETRAIN
@@ -91,7 +107,7 @@ public final class Constants {
 
     public static final int DRIVETRAIN_JOYSTICK_AXIS_SPEED = 5;
     public static final int DRIVETRAIN_JOYSTICK_AXIS_ROTATION = 0;
-    public static final int DRIVETRAIN_DRIVE_TRIGGER = 6;
+    public static final int DRIVETRAIN_DRIVE_TRIGGER = 6; //RB
 
     /*
     CONTROLLER
