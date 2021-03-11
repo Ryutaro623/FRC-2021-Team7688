@@ -9,14 +9,12 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-
 public class Feeder extends SubsystemBase {
 
   private final VictorSPX feeder = new VictorSPX(Constants.FEEDER_CHANNEL);
- 
 
   /** Creates a new Feeder. */
-  public Feeder() { 
+  public Feeder() {
     feeder.configOpenloopRamp(Constants.FEEDER_RAMP);
   }
 

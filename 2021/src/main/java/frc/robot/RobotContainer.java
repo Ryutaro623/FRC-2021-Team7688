@@ -16,7 +16,6 @@ import frc.robot.commands.LimelightPitch;
 import frc.robot.commands.LimelightRotate;
 import frc.robot.commands.ShootwithLED;
 import frc.robot.subsystems.Agitator;
-import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.LED;
@@ -24,8 +23,6 @@ import frc.robot.subsystems.Launcher;
 import frc.robot.subsystems.LimelightActuator;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.Raise;
-import frc.robot.commands.Lower;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -51,8 +48,6 @@ public class RobotContainer {
   private final JoystickButton j_Start = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_START);
   private final JoystickButton j_LStick = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_LEFTSTICK);
   private final JoystickButton j_RStick = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_RIGHTSTICK);
-
-
   //LED
   public final static LED m_led = new LED();
 
@@ -62,9 +57,6 @@ public class RobotContainer {
   
   //Feeder
   public final static Feeder m_feeder = new Feeder();
-
-  //Collector
-  public final static Collector m_collector = new Collector();
 
   //Launcher
   public final static Launcher m_launcher = new Launcher();
@@ -99,9 +91,6 @@ public class RobotContainer {
     j_B.whenPressed(limelightRotate);
 
     j_Y.whenPressed(Shoot.andThen(new LEDwhite(m_led)));
-
-    j_X.whenPressed(new Raise());
-    j_LShoulder.whenPressed(new Lower());
   }
 
   /**
