@@ -18,8 +18,8 @@ public final class Constants {
     NUMBER = LETTER, FUNCTION
     JOYSTICK BUTTONS ALREADY IN USE:
     3 = X, FEED LAUNCH
-    2 = B, LIMELIGHT ROTATE
-    1 = A, LIMELIGHT PITCH
+    2 = B, LIMELIGHT PITCH
+    1 = A, LIMELIGHT ROTATE
     6 = RB, DRIVE
     KEYMAPS:
     https://github.com/mandlifrc/GearsBotF310
@@ -74,13 +74,13 @@ public final class Constants {
     /*
     LIMELIGHT ROTATOR
     */
-    public static final double LIMELIGHT_ACTUATOR_ROTATE_MAX = 180;
+    public static final double LIMELIGHT_ACTUATOR_ROTATE_MAX = 170;
     public static final double LIMELIGHT_ACTUATOR_ROTATE_MIN = 0;
     public static final double LIMELIGHT_ACTUATOR_PITCH_MAX = 0;
-    public static final double LIMELIGHT_ACTUATOR_PITCH_MIN = 180;
+    public static final double LIMELIGHT_ACTUATOR_PITCH_MIN = 170;
     
-    public static final int LIMELIGHT_ACTUATOR_PITCH_CHANNEL = 0;
-    public static final int LIMELIGHT_ACTUATOR_ROTATE_CHANNEL = 1;
+    public static final int LIMELIGHT_ACTUATOR_PITCH_CHANNEL = 1;
+    public static final int LIMELIGHT_ACTUATOR_ROTATE_CHANNEL = 0;
 
     public static final int LIMELIGHT_ACTUATOR_ROTATE_TRIGGER = 2; //B
     public static final int LIMELIGHT_ACTUATOR_PITCH_TRIGGER = 1; //A
