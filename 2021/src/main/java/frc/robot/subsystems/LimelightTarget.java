@@ -16,9 +16,13 @@ public class LimelightTarget extends SubsystemBase {
   double x;
   double a;
   public LimelightTarget() {
+    
+    
+    
+  }
+  public void Turn_on_the_light(){
     table.getEntry("ledMode").setNumber(3);
-    
-    
+
   }
 
   public double Target(){
