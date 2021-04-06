@@ -94,8 +94,8 @@ public class RobotContainer {
 
     j_A.whenPressed(limelightPitch);
     j_B.whenPressed(limelightRotate);
-    j_X.whenHeld(aim);
-    j_Y.whenPressed(Shoot.andThen(new LEDwhite(m_led)));
+    j_Y.whenHeld(aim);
+    j_X.whenPressed(Shoot.andThen(new LEDwhite(m_led)));
   }
 
   /**
