@@ -7,8 +7,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.Aiming;
-import frc.robot.commands.Drive;
+import frc.robot.commands.Collectballs;
+import frc.robot.commands.teleDrive;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.LEDwhite;
 import frc.robot.subsystems.Drivetrain;
@@ -59,7 +59,7 @@ public class RobotContainer {
 
   //Drivetrain
   private final Drivetrain drivetrain = new Drivetrain();
-  private final Drive drivetrainDrive = new Drive(drivetrain,m_led);
+  private final teleDrive drivetrainDrive = new teleDrive(drivetrain,m_led);
   //collector
   public final Collector m_collector = new Collector();
   private final Stopcollector s_collector = new Stopcollector(m_collector);

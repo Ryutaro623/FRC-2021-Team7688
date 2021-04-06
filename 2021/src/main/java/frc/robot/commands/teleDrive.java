@@ -10,13 +10,13 @@ import frc.robot.Constants;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.LED;
 
-public class Drive extends CommandBase {
+public class teleDrive extends CommandBase {
   private final Drivetrain drivetrain;
   private final LED led;
   private final Joystick joystick = new Joystick(0);
 
   /** Creates a new Drive. */
-  public Drive(Drivetrain dt,LED i_led) {
+  public teleDrive(Drivetrain dt,LED i_led) {
     drivetrain = dt;
     led = i_led;
     addRequirements(drivetrain);
