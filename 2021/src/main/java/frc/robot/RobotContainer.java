@@ -26,7 +26,7 @@ import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.LED;
 import frc.robot.subsystems.Launcher;
 import frc.robot.subsystems.LimelightActuator;
-import frc.robot.subsystems.Pnuematics;
+import frc.robot.subsystems.LimelightTarget;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -77,13 +77,12 @@ public class RobotContainer {
   
 
   //Limelight Actuator
+  private final LimelightTarget lTarget = new LimelightTarget();
+  
   private final LimelightActuator limelightActuator = new LimelightActuator();
   private final LimelightRotate limelightRotate = new LimelightRotate(limelightActuator);
   private final LimelightPitch limelightPitch = new LimelightPitch(limelightActuator);
-  //Pneumatics
-  private final Pnuematics pneumatic = new Pnuematics();
-  private final Pneumatic_push push = new Pneumatic_push(pneumatic);
-  private final Pneumatic_back back = new Pneumatic_back(pneumatic);
+  private final Aiming aim = new Aiming(drivetrain, lTarget,limelightActuator);
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -102,13 +101,7 @@ public class RobotContainer {
 
     j_A.whenPressed(limelightPitch);
     j_B.whenPressed(limelightRotate);
-
-    j_LStick.whenPressed(push);
-    j_RStick.whenPressed(back);
-
-    j_LShoulder.whenPressed(collect);
-    j_LShoulder.whenReleased(s_collector);
-
+    j_X.whenHeld(aim);
     j_Y.whenPressed(Shoot.andThen(new LEDwhite(m_led)));
   }
 

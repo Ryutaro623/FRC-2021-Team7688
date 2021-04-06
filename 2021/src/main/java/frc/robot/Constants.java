@@ -88,9 +88,27 @@ public final class Constants {
     public static final double LIMELIGHT_ACTUATOR_ROTATE_MIN = 0;
     public static final double LIMELIGHT_ACTUATOR_PITCH_MAX = 0;
     public static final double LIMELIGHT_ACTUATOR_PITCH_MIN = 170;
+  
+    public static final int LIMELIGHT_ACTUATOR_PITCH_CHANNEL = 0;
+    public static final int LIMELIGHT_ACTUATOR_ROTATE_CHANNEL = 1;
+
+    public static final int LIMELIGHT_ACTUATOR_ROTATE_TRIGGER = 2;
+    public static final int LIMELIGHT_ACTUATOR_PITCH_TRIGGER = 1;
     
-    public static final int LIMELIGHT_ACTUATOR_PITCH_CHANNEL = 1;
-    public static final int LIMELIGHT_ACTUATOR_ROTATE_CHANNEL = 0;
+    /*
+    LIMELIGHT PID 
+    */
+    public static final double LIMELIGHT_ROTATTON_SETPOINT = 0;
+    public static final double LIMELIGHT_ROTATION_KP = -0.8;
+    public static final double MINROTATION_I_LIMITE = -0.45;
+    public static final double MAX_I_LIMIT = 0.35;
+    public static final double LIMELIGHT_ROTATION_KI = -0.0;
+    public static final double LIMELIGHT_ROTATION_KD = -0.3;
+
+    public static final double LIMELIGHT_DISTANCE_KP = -0.75;
+    public static final double LIMELIGHT_DISTANCE_KD = -0.5;
+    public static final double LIMELIGHT_DISTANCE_KI = -0.5;
+    public static final double LIMELIGHT_DISTANCE_SETPOINT = 2.3;
 
     /*
     DRIVETRAIN
