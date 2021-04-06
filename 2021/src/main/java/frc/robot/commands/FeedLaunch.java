@@ -27,7 +27,7 @@ public class FeedLaunch extends SequentialCommandGroup {
       new Pushball(),
       new StopFeed(feeder),
       new StopLaunch(launcher),
-      new StopAgitator(agitator)
+      new StopAgitator(agitator)     
     );
   }
 }
