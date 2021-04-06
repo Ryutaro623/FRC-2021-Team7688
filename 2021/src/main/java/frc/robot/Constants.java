@@ -19,9 +19,12 @@ public final class Constants {
 
     JOYSTICK BUTTONS ALREADY IN USE:
     3 = X, FEED LAUNCH
-    2 = B, LIMELIGHT PITCH
-    1 = A, LIMELIGHT ROTATE
+    2 = B, LIMELIGHT ROTATE
+    1 = A, LIMELIGHT PITCH
+    5 = LShoulder, Collector
     6 = RB, DRIVE
+    9 = LStick, pneumatic back
+    10 = RStick, Pneumatic push
 
     KEYMAPS:
     https://github.com/mandlifrc/GearsBotF310
@@ -31,7 +34,7 @@ public final class Constants {
     /*
     AGITATOR
     */
-    public final static int AGITATOR_MOTOR_PORT = 2;
+    public final static int AGITATOR_MOTOR_PORT = 1;
     public final static double AGITATOR_RAMP_TIME = 1.1;
     public final static double AGITATOR_MOTOR_SPEED = 0.5;
     public final static double AGITATOR_WAIT_TIME = 6;
@@ -49,6 +52,12 @@ public final class Constants {
     public final static int COMPRESSOR_PORT = 0;
     public final static int PENUMATIC_SOLENOIDS_RIGHT_PORT = 0;
     public final static int PENUMATIC_SOLENOIDS_LEFT_PORT = 1;
+    /*
+    Collector motor
+    */
+    public final static int COLLECTOR_MOTOR_PORT = 2;
+    public final static double COLLECTOR_MOTOR_SPEED = 0.5;
+    public final static double COLLECTOR_RAMP_UP = 0.5;
   
     /*
     LAUNCHER

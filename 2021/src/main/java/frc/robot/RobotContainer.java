@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.Collectballs;
 import frc.robot.commands.Drive;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.LEDwhite;
@@ -17,7 +18,9 @@ import frc.robot.commands.LimelightRotate;
 import frc.robot.commands.Pneumatic_back;
 import frc.robot.commands.Pneumatic_push;
 import frc.robot.commands.ShootwithLED;
+import frc.robot.commands.Stopcollector;
 import frc.robot.subsystems.Agitator;
+import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.LED;
@@ -57,7 +60,10 @@ public class RobotContainer {
   //Drivetrain
   private final Drivetrain drivetrain = new Drivetrain();
   private final Drive drivetrainDrive = new Drive(drivetrain,m_led);
-  
+  //collector
+  public final Collector m_collector = new Collector();
+  private final Stopcollector s_collector = new Stopcollector(m_collector);
+  public final Collectballs collect = new Collectballs(m_collector);
   //Feeder
   public final static Feeder m_feeder = new Feeder();
 
@@ -99,6 +105,9 @@ public class RobotContainer {
 
     j_LStick.whenPressed(push);
     j_RStick.whenPressed(back);
+
+    j_LShoulder.whenPressed(collect);
+    j_LShoulder.whenReleased(s_collector);
 
     j_Y.whenPressed(Shoot.andThen(new LEDwhite(m_led)));
   }
