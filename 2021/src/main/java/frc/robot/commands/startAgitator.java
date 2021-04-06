@@ -33,7 +33,7 @@ public class startAgitator extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if(TIME.get()>= lasttime+Constants.AGITATOR_RAMP_TIME){
+    if(TIME.get() >= lasttime+Constants.CHANGE_DIRECTION_TIME){
       lasttime = TIME.get();
       change = change*-1;
       m_agitator.Speed(Constants.AGITATOR_MOTOR_SPEED*change);
@@ -50,6 +50,6 @@ public class startAgitator extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return true;
+    return false;
   }
 }

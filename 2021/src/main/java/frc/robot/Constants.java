@@ -35,9 +35,10 @@ public final class Constants {
     AGITATOR
     */
     public final static int AGITATOR_MOTOR_PORT = 1;
-    public final static double AGITATOR_RAMP_TIME = 1.1;
+    public final static double AGITATOR_RAMP_TIME = 0.3;
     public final static double AGITATOR_MOTOR_SPEED = 0.5;
-    public final static double AGITATOR_WAIT_TIME = 6;
+    public final static double AGITATOR_WAIT_TIME = 7;
+    public final static double CHANGE_DIRECTION_TIME=0.7;
 
     /*
     LED
