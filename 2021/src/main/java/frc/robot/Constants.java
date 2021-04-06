@@ -14,12 +14,30 @@ package frc.robot;
  */
 public final class Constants {
     /*
+    When you add button bindings please add below in the format: 
+    NUMBER = LETTER, FUNCTION
+
+    JOYSTICK BUTTONS ALREADY IN USE:
+    3 = X, FEED LAUNCH
+    2 = B, LIMELIGHT ROTATE
+    1 = A, LIMELIGHT PITCH
+    5 = LShoulder, Collector
+    6 = RB, DRIVE
+    9 = LStick, pneumatic back
+    10 = RStick, Pneumatic push
+
+    KEYMAPS:
+    https://github.com/mandlifrc/GearsBotF310
+    */
+    
+    
+    /*
     AGITATOR
     */
-    public final static int AGITATOR_MOTOR_PORT = 2;
-    public final static double AGITATOR_RAMP_TIME = 0.9;
+    public final static int AGITATOR_MOTOR_PORT = 1;
+    public final static double AGITATOR_RAMP_TIME = 1.1;
     public final static double AGITATOR_MOTOR_SPEED = 0.5;
-    public final static double AGITATOR_WAIT_TIME = 9;
+    public final static double AGITATOR_WAIT_TIME = 6;
 
     /*
     LED
@@ -28,6 +46,18 @@ public final class Constants {
     public final static int LED_PORT = 9;
     public final static int HSV_SATURATION = 255;
     public final static int HSV_VALUE = 128;
+    /*
+    Pnumatic
+    */
+    public final static int COMPRESSOR_PORT = 0;
+    public final static int PENUMATIC_SOLENOIDS_RIGHT_PORT = 0;
+    public final static int PENUMATIC_SOLENOIDS_LEFT_PORT = 1;
+    /*
+    Collector motor
+    */
+    public final static int COLLECTOR_MOTOR_PORT = 2;
+    public final static double COLLECTOR_MOTOR_SPEED = 0.5;
+    public final static double COLLECTOR_RAMP_UP = 0.5;
   
     /*
     LAUNCHER
@@ -49,17 +79,16 @@ public final class Constants {
     public static final int FEEDER_CHANNEL = 13;  
     public static final double FEEDER_DELAY = 3; //Delay before the feeder starts in the FeedLaunch Sequential Command Group
     
-    public static final double LAUNCHER_FEEDER_RUNTIME = 8; //Delay before the feeder starts in the FeedLaunch Sequential Command Group
-    public static final int LAUNCHER_FEEDER_TRIGGER = 3;
+    public static final double LAUNCHER_FEEDER_RUNTIME = 1.5; //Delay before the feeder starts in the FeedLaunch Sequential Command Group
 
     /*
     LIMELIGHT ROTATOR
     */
-    public static final double LIMELIGHT_ACTUATOR_ROTATE_MAX = 180;
+    public static final double LIMELIGHT_ACTUATOR_ROTATE_MAX = 170;
     public static final double LIMELIGHT_ACTUATOR_ROTATE_MIN = 0;
     public static final double LIMELIGHT_ACTUATOR_PITCH_MAX = 0;
-    public static final double LIMELIGHT_ACTUATOR_PITCH_MIN = 180;
-    
+    public static final double LIMELIGHT_ACTUATOR_PITCH_MIN = 170;
+  
     public static final int LIMELIGHT_ACTUATOR_PITCH_CHANNEL = 0;
     public static final int LIMELIGHT_ACTUATOR_ROTATE_CHANNEL = 1;
 
@@ -100,7 +129,6 @@ public final class Constants {
 
     public static final int DRIVETRAIN_JOYSTICK_AXIS_SPEED = 5;
     public static final int DRIVETRAIN_JOYSTICK_AXIS_ROTATION = 0;
-    public static final int DRIVETRAIN_DRIVE_TRIGGER = 6;
 
     /*
     CONTROLLER
