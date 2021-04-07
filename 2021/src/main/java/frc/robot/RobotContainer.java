@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.Aiming;
+import frc.robot.commands.AutoTesting;
 import frc.robot.commands.Collectballs;
 import frc.robot.commands.teleDrive;
 import frc.robot.commands.ExampleCommand;
@@ -62,6 +63,9 @@ public class RobotContainer {
   //Drivetrain
   private final Drivetrain drivetrain = new Drivetrain();
   private final teleDrive drivetrainDrive = new teleDrive(drivetrain,m_led);
+
+  private final AutoTesting autoTest = new AutoTesting(drivetrain);
+
   //collector
   public final Collector m_collector = new Collector();
   private final Stopcollector s_collector = new Stopcollector(m_collector);
@@ -127,6 +131,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return autoTest;
   }
 }

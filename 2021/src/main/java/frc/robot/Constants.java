@@ -131,6 +131,8 @@ public final class Constants {
     public static final int DRIVETRAIN_JOYSTICK_AXIS_SPEED = 5;
     public static final int DRIVETRAIN_JOYSTICK_AXIS_ROTATION = 0;
 
+    public static final double DRIVETRAIN_ROTATION_BIAS = -0.09;
+
     /*
     CONTROLLER
     */
