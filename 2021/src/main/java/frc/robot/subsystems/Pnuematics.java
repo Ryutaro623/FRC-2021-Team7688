@@ -4,15 +4,25 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Pnuematics extends SubsystemBase {
   /** Creates a new Pnumatics. */
+  private final Compressor c = new Compressor();
   private final DoubleSolenoid doubleSolenoid = new DoubleSolenoid(Constants.PENUMATIC_SOLENOIDS_RIGHT_PORT,Constants.PENUMATIC_SOLENOIDS_LEFT_PORT);
 
   public Pnuematics() {}
+
+  public void Stop(){
+    c.stop();
+  }
+
+  public void Start(){
+    c.start();
+  }
 
   public void Push(){
     doubleSolenoid.set(DoubleSolenoid.Value.kForward);

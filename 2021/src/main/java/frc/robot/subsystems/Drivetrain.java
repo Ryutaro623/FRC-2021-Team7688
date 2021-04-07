@@ -57,7 +57,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void drive(double speed, double rotation) {
-    diffDrive.arcadeDrive(speed * Constants.DRIVETRAIN_DRIVE_DIRECTION, rotation);
+    diffDrive.arcadeDrive(speed * -Constants.DRIVETRAIN_DRIVE_DIRECTION, rotation);
   }
 
   public void stop() {
