@@ -115,7 +115,7 @@ public final class Constants {
     DRIVETRAIN
     */
     public static final int DRIVETRAIN_DRIVE_DIRECTION = 1; //1 or -1
-    public static final double DRIVETRAIN_RAMP = 1;
+    public static final double DRIVETRAIN_RAMP = 0.5;
 
     public static final int DRIVETRAIN_LEFT_FRONT_TOP_CHANNEL = 7;
     public static final int DRIVETRAIN_LEFT_FRONT_BOTTOM_CHANNEL = 8;
