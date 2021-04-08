@@ -64,8 +64,8 @@ public final class Constants {
     LAUNCHER
     */
     public static final double LAUNCHER_RAMP = 1.5;
-    public static final double LAUNCHER_UPPER_SPEED = 0.48;
-    public static final double LAUNCHER_LOWER_SPEED = 0.48;
+    public static final double LAUNCHER_UPPER_SPEED = 0.6;
+    public static final double LAUNCHER_LOWER_SPEED = 0.6;
     public static final int LAUNCHER_UPPER_MULTIPLIER = 1;
     public static final int LAUNCHER_LOWER_MULTIPLIER = 1;
     public static final int LAUNCHER_UPPER_CHANNEL = 11;
@@ -100,16 +100,16 @@ public final class Constants {
     LIMELIGHT PID 
     */
     public static final double LIMELIGHT_ROTATTON_SETPOINT = 0;
-    public static final double LIMELIGHT_ROTATION_KP = -0.8;
+    public static final double LIMELIGHT_ROTATION_KP = -1.15;
     public static final double MINROTATION_I_LIMITE = -0.45;
     public static final double MAX_I_LIMIT = 0.35;
     public static final double LIMELIGHT_ROTATION_KI = -0.0;
-    public static final double LIMELIGHT_ROTATION_KD = -0.3;
+    public static final double LIMELIGHT_ROTATION_KD = -0.5;
 
-    public static final double LIMELIGHT_DISTANCE_KP = -0.75;
-    public static final double LIMELIGHT_DISTANCE_KD = -0.5;
-    public static final double LIMELIGHT_DISTANCE_KI = -0.5;
-    public static final double LIMELIGHT_DISTANCE_SETPOINT = 2.3;
+    public static final double LIMELIGHT_DISTANCE_KP = -0.0;
+    public static final double LIMELIGHT_DISTANCE_KD = -0.0;
+    public static final double LIMELIGHT_DISTANCE_KI = -0.0;
+    public static final double LIMELIGHT_DISTANCE_SETPOINT = 2;
 
     /*
     DRIVETRAIN
@@ -130,6 +130,8 @@ public final class Constants {
 
     public static final int DRIVETRAIN_JOYSTICK_AXIS_SPEED = 5;
     public static final int DRIVETRAIN_JOYSTICK_AXIS_ROTATION = 0;
+
+    public static final double DRIVETRAIN_ROTATION_BIAS = -0.09;
 
     /*
     CONTROLLER
