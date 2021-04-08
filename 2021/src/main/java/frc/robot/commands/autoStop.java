@@ -5,27 +5,26 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Pnuematics;
+import frc.robot.subsystems.Drivetrain;
 
-public class Pneumatic_push extends CommandBase {
-  private final Pnuematics p;
-  /** Creates a new Pneumatic_test. */
-  public Pneumatic_push(Pnuematics pp) {
-    p = pp;
-    addRequirements(p);
+public class autoStop extends CommandBase {
+  private final Drivetrain drivetrain;
+
+  /** Creates a new autoStop. */
+  public autoStop(Drivetrain dt) {
     // Use addRequirements() here to declare subsystem dependencies.
+    drivetrain = dt;
+    addRequirements(drivetrain);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-    p.Start();
-  }
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    p.Push();
+    drivetrain.autoDrive(0, 0);
   }
 
   // Called once the command ends or is interrupted.
@@ -35,6 +34,6 @@ public class Pneumatic_push extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }

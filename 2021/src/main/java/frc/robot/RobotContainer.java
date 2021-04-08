@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.Aiming;
+import frc.robot.commands.AutoTesting;
 import frc.robot.commands.Collectballs;
 import frc.robot.commands.teleDrive;
 import frc.robot.commands.ExampleCommand;
@@ -58,10 +59,14 @@ public class RobotContainer {
   private final JoystickButton j_RStick = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_RIGHTSTICK);
   //LED
   public final static LED m_led = new LED();
-
+//Pneumatic
+private final Pnuematics p = new Pnuematics();
+private final Pneumatic_push push = new Pneumatic_push(p);
+private final Pneumatic_back back = new Pneumatic_back(p);
   //Drivetrain
   private final Drivetrain drivetrain = new Drivetrain();
-  private final teleDrive drivetrainDrive = new teleDrive(drivetrain,m_led);
+  private final teleDrive drivetrainDrive = new teleDrive(drivetrain,m_led,p);
+
   //collector
   public final Collector m_collector = new Collector();
   private final Stopcollector s_collector = new Stopcollector(m_collector);
@@ -86,10 +91,7 @@ public class RobotContainer {
   private final LimelightPitch limelightPitch = new LimelightPitch(limelightActuator);
   private final Aiming aim = new Aiming(drivetrain, lTarget,limelightActuator);
 
-  //Pneumatic
-  private final Pnuematics p = new Pnuematics();
-  private final Pneumatic_push push = new Pneumatic_push(p);
-  private final Pneumatic_back back = new Pneumatic_back(p);
+  
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -127,6 +129,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return autoTest;
   }
 }

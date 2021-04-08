@@ -18,6 +18,7 @@ public class Aiming extends CommandBase {
   /** Creates a new Aiming. */
   private final PIDController pid = new PIDController(Constants.LIMELIGHT_ROTATION_KP, Constants.LIMELIGHT_ROTATION_KI,Constants.LIMELIGHT_ROTATION_KD);
   private final PIDController pidS = new PIDController(0.6, 0, 0.5);
+  
   private final Drivetrain D;
   private final LimelightTarget LT;
   private final LimelightActuator LA;
