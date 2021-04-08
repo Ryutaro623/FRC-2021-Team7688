@@ -17,7 +17,7 @@ import frc.robot.subsystems.LimelightTarget;
 public class Aiming extends CommandBase {
   /** Creates a new Aiming. */
   private final PIDController pid = new PIDController(Constants.LIMELIGHT_ROTATION_KP, Constants.LIMELIGHT_ROTATION_KI,Constants.LIMELIGHT_ROTATION_KD);
-  private final PIDController pidS = new PIDController(0.65, 0, 0.5);
+  private final PIDController pidS = new PIDController(0.6, 0, 0.5);
   private final Drivetrain D;
   private final LimelightTarget LT;
   private final LimelightActuator LA;
@@ -54,7 +54,7 @@ public class Aiming extends CommandBase {
 
     } else {
       double output = pid.calculate(LT.Target()/27, Constants.LIMELIGHT_ROTATTON_SETPOINT);
-      double output_spead = -pidS.calculate(LT.Area(), Constants.LIMELIGHT_DISTANCE_SETPOINT);
+      double output_spead = pidS.calculate(LT.Area(), Constants.LIMELIGHT_DISTANCE_SETPOINT);
       System.out.println("GOING TO THE TARGET "+output);
       SmartDashboard.putNumber("Set_point",pid.getSetpoint());
       SmartDashboard.putNumber("Offset", pid.getPositionError());
